@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Doces 🧁 | Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        .profile-img {
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            padding: 3px;
+        }
+        .profile-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+        .link-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+        }
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        .link-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .link-card:hover::after {
+            opacity: 1;
+        }
+        .icon-container {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .link-card:hover .icon-container {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+        .fa-chevron-right {
+            transition: all 0.3s ease;
+        }
+        .link-card:hover .fa-chevron-right {
+            transform: translateX(3px);
+            color: #64748b;
+        }
+    </style>
+</head>
+<body class="py-12 px-4 md:py-20">
+    <div class="max-w-md mx-auto">
+        <!-- Profile Section -->
+        <div class="text-center mb-12">
+            <div class="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full shadow-2xl profile-img">
+                <img src="logo.png" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">La Doces</h1>
+            <p class="text-sm text-gray-500 italic">
+                Clique no botão de WhatsApp e fale diretamente conosco!
+            </p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="space-y-6">
+            <!-- WhatsApp Link -->
+            <a href="https://wa.me/5511966162056" target="_blank" class="block">
+                <div class="link-card bg-white/90 rounded-xl p-5 shadow-lg flex items-center hover:shadow-xl">
+                    <div class="icon-container w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mr-4">
+                        <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">WhatsApp</h3>
+                        <p class="text-xs text-gray-500 mt-1">Peça já seu docinho!</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-300 ml-2"></i>
+                </div>
+            </a>
+
+            <!-- Instagram Link -->
+            <a href="https://www.instagram.com/la_doces1603/" target="_blank" class="block">
+                <div class="link-card bg-white rounded-xl p-5 shadow-md flex items-center hover:shadow-lg">
+                    <div class="icon-container w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mr-4">
+                        <i class="fab fa-instagram text-gradient-to-r from-purple-500 to-pink-500 text-2xl" style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-800">Instagram</h3>
+                        <p class="text-xs text-gray-500 mt-1">Nos siga no Instagram!</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-300 ml-2"></i>
+                </div>
+            </a>
+
+        <!-- Footer -->
+        <div class="mt-12 text-center text-gray-500 text-sm">
+            <p>© 2025 | <strong class="text-gray-700">La Doces 🧁</strong> | Todos os direitos reservados.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add ripple effect to links
+            const links = document.querySelectorAll('.link-card');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Create ripple element
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    ripple.style.width = ripple.style.height = Math.max(this.offsetWidth, this.offsetHeight) + 'px';
+                    ripple.style.left = (e.pageX - this.getBoundingClientRect().left - this.offsetWidth / 2) + 'px';
+                    ripple.style.top = (e.pageY - this.getBoundingClientRect().top - this.offsetHeight / 2) + 'px';
+                    this.appendChild(ripple);
+                    
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
